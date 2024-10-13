@@ -1,5 +1,3 @@
-import ply.lex as lex
-
 class Symbol:
     def __init__(self, name, symbol_type, value=None):
         self.name = name
@@ -48,13 +46,20 @@ class SymbolTable:
 
     def display_table(self):
         """Display symbols in the global and local scopes."""
-        print("\nGlobal Scope:")
+        print("\nSymbol Table:")
+
+        # Display global symbols
         for name, symbol in self.global_scope.items():
-            print(symbol)
+            print(f"Name: {symbol.name}, Type: {symbol.type}, Value: {symbol.value}")
+
+        # Display local symbols
         for idx, scope in enumerate(self.local_scopes):
             print(f"\nLocal Scope {idx + 1}:")
             for name, symbol in scope.items():
-                print(symbol)
+                print(f"Name: {symbol.name}, Type: {symbol.type}, Value: {symbol.value}")
+
+
+import ply.lex as lex
 
 
 class ZaraLexer:
@@ -174,5 +179,6 @@ def main():
     symbol_table.display_table()
 
 
+# Execute the main function
 if __name__ == "__main__":
     main()
