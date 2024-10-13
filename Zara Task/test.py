@@ -1,3 +1,5 @@
+import ply.lex as lex
+
 class Symbol:
     def __init__(self, name, symbol_type, value=None):
         self.name = name
@@ -58,8 +60,6 @@ class SymbolTable:
             for name, symbol in scope.items():
                 print(f"Name: {symbol.name}, Type: {symbol.type}, Value: {symbol.value}")
 
-
-import ply.lex as lex
 
 
 class ZaraLexer:
