@@ -1,3 +1,5 @@
+import ply.lex as lex
+
 class Symbol:
     def __init__(self, name, symbol_type, value=None):
         self.name = name
@@ -54,8 +56,6 @@ class SymbolTable:
             for name, symbol in scope.items():
                 print(symbol)
 
-
-import ply.lex as lex
 
 class ZaraLexer:
     tokens = (
@@ -172,3 +172,7 @@ def main():
     # Display symbols after exiting scope
     print("\nSymbol Table after exiting scope:")
     symbol_table.display_table()
+
+
+if __name__ == "__main__":
+    main()
